@@ -1,0 +1,22 @@
+{
+  "name": "mon-projet-node-express-mongodb",
+  "version": "1.0.0",
+  "description": "Un projet Node.js utilisant Express.js, MongoDB, Mongoose et JWT pour l'authentification",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.0",
+    "jsonwebtoken": "^9.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "author": "ER RACHIDI IBTISSAM",
+  "license": "ISC"
+}
