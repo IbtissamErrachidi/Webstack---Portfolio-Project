@@ -2,15 +2,17 @@ const express = require('express');
 const authRoutes = require('./routes/authRoutes');
 const mongoose = require('mongoose');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'style')));
 mongoose.set('strictQuery', true);
 // URL de connexion MongoDB
 const dbURI = 'mongodb+srv://ibtissamerrachidi810:An1XQlEIFReUIl5E@cluster0.ses7k.mongodb.net/Mydatabase';
 
-// Connexion à MongoDB
+// Connexion  MongoDB
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -30,6 +32,7 @@ mongoose.connect(dbURI, {
 // Middleware pour analyser les données POST
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Définir le répertoire des vues
 app.set('views', path.join(__dirname, 'views/pages'));
