@@ -6,6 +6,7 @@ const path = require('path');
 
 const app = express();
 
+mongoose.set('strictQuery', true);
 // URL de connexion MongoDB
 const dbURI = 'mongodb+srv://ibtissamerrachidi810:An1XQlEIFReUIl5E@cluster0.ses7k.mongodb.net/Mydatabase';
 
