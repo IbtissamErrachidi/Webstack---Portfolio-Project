@@ -3,12 +3,13 @@ const authRoutes = require('./routes/authRoutes');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const { requireAuth } = require('./middleware/middleware');
 
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'style')));
 mongoose.set('strictQuery', true);
+
 // URL de connexion MongoDB
 const dbURI = 'mongodb+srv://ibtissamerrachidi810:An1XQlEIFReUIl5E@cluster0.ses7k.mongodb.net/Mydatabase';
 
@@ -33,6 +34,7 @@ mongoose.connect(dbURI, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'style')));
 
 // Définir le répertoire des vues
 app.set('views', path.join(__dirname, 'views/pages'));
@@ -40,6 +42,7 @@ app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
 // Routes
+app.get('/', requireAuth, (req, res) => res.render('home'));
 app.use(authRoutes);
 
 module.exports = app;
