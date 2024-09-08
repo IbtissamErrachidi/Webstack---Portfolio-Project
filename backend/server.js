@@ -42,6 +42,7 @@ app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
 // Routes
+app.get('*', checkUser);
 app.get('/', requireAuth, (req, res) => res.render('home'));
 app.use(authRoutes);
 
