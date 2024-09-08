@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
 
 const requireAuth = (req, res, next) => {
@@ -25,7 +26,7 @@ const checkUser = (req, res, next) => {
     const token = req.cookies.jwt;
 
     if (token) {
-        jwt.verify(token, 'net ninja secret', async (err, decodedToken) => {
+        jwt.verify(token, 'jwt secret', async (err, decodedToken) => {
             if (err) {
                 res.locals.user = null;
                 next();
@@ -42,4 +43,4 @@ const checkUser = (req, res, next) => {
 };
 
 
-module.exports = { requireAuth };
+module.exports = { requireAuth, checkUser };

@@ -3,7 +3,7 @@ const authRoutes = require('./routes/authRoutes');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const { requireAuth } = require('./middleware/middleware');
+const { requireAuth, checkUser } = require('./middleware/middleware');
 
 
 const app = express();
