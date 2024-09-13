@@ -1,35 +1,32 @@
-<%- include('../sections/header'); %>
-
 <form id="login-form">
   <h2>Log in</h2>
-  
+
   <label for="email">Email</label>
   <input type="text" name="email" required />
   <div class="email error"></div>
-  
+
   <label for="password">Password</label>
   <input type="password" name="password" required />
   <div class="password error"></div>
-  
+
   <button type="submit">Log in</button>
 </form>
 
 <script>
-  const signupForm = document.getElementById('login-form');
+  const loginForm = document.getElementById('login-form');
   const emailError = document.querySelector('.email.error');
   const passwordError = document.querySelector('.password.error');
 
-
-   signupForm.addEventListener('submit', async (e) => {
+  loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // reset errors
     emailError.textContent = '';
     passwordError.textContent = '';
 
-    //get the values
-    const email = signupForm.email.value;
-    const password = signupForm.password.value;
+    // get the values
+    const email = loginForm.email.value;
+    const password = loginForm.password.value;
 
     try {
       const res = await fetch('/login', {
@@ -46,13 +43,9 @@
       if (data.user) {
         location.assign('/');
       }
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
   });
-
 </script>
-
-<%- include('../sections/footer'); %>
 

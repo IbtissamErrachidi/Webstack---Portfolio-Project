@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middleware/middleware');
+const ejsLayouts = require('express-ejs-layouts');
 
 
 const app = express();
@@ -35,15 +36,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'style')));
+// Use express-ejs-layouts
+app.use(ejsLayouts);
 
 // Définir le répertoire des vues
-app.set('views', path.join(__dirname, 'views/pages'));
+app.set('views', path.join(__dirname, 'views'));
 // Définir un moteur de rendu si vous utilisez res.render
+app.use(ejsLayouts);
 app.set('view engine', 'ejs');
+// Définir le layout par défaut
+app.set('layout', 'layouts/main'); 
+
 
 // Routes
 app.get('*', checkUser);
-app.get('/', requireAuth, (req, res) => res.render('home'));
+app.get('/', requireAuth, (req, res) => res.render('pages/home', { title: 'Home Page' }));
 app.use(authRoutes);
 
 module.exports = app;
