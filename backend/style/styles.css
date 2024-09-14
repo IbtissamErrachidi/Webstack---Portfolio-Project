@@ -159,15 +159,18 @@ footer p {
 
 
 
-/* Style for articles section */
+/* Style for the articles section */
 .articles {
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .articles_heading {
-  font-size: 2rem;
   margin-bottom: 1rem;
+  font-size: 2rem;
   color: #333;
 }
 
@@ -176,72 +179,144 @@ footer p {
   padding: 0;
 }
 
-.article-item {
-  margin-bottom: 1.5rem;
+.article-ul li {
+  margin-bottom: 1rem;
 }
 
-.article-item a {
+.article-ul li a {
   text-decoration: none;
   color: #333;
-  display: block; /* Ensures that the entire block is clickable */
+  display: flex;
+  justify-content: space-between;
+  margin-left: 18px;
 }
 
-.post-title {
-  display: block; /* Makes the title take its own line */
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem; /* Space between title and date */
-  color: #333;
+.article-ul li a:hover {
+  text-decoration: underline;
+  color: #007bff;
 }
 
 .article-list_date {
-  display: block; /* Ensures the date is on a new line */
-  font-size: 1rem;
   color: #666;
 }
 
 .pagination {
-  display: inline-block;
+  display: block;
   margin-top: 1rem;
-  font-size: 1rem;
   color: #007bff;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .pagination:hover {
   text-decoration: underline;
 }
 
-/* Style for the search container */
+
+/* Style for the search button */
+.search-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  color: #fff;
+}
+
+.search-button i {
+  color: #007bff; /* Couleur de l'icône de recherche */
+}
+
+/* Adjust the position of the search container */
 .search-container {
   display: flex;
-  justify-content: center; /* Centers the search wrapper horizontally */
-  padding: 2rem; /* Adds padding around the search bar */
+  justify-content: center;
+  padding: 2rem;
+  position: absolute; /* Position absolue pour apparaître au-dessus du header */
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff; /* Fond blanc pour la barre de recherche */
+  z-index: 100; /* Assurez-vous que la barre de recherche est au-dessus du contenu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Effet d'ombre pour la barre */
 }
 
-/* Style for the search wrapper */
-.search-wrapper {
-  max-width: 600px; /* Limits the maximum width of the search bar */
-  width: 100%; /* Ensures the search wrapper takes full width available */
-}
-
-/* Style for the search form */
-.search-form {
-  display: flex;
-  justify-content: center; /* Centers the search input horizontally within the form */
+/* Hide the search bar by default */
+#searchContainer {
+  display: none;
 }
 
 /* Style for the search input */
 .search-input {
-  width: 100%; /* Takes full width of the search form */
-  padding: 0.8rem; /* Adds padding inside the search input */
-  border: 1px solid #ddd; /* Adds a border around the input */
-  border-radius: 4px; /* Rounds the corners of the input */
-  font-size: 1rem; /* Sets the font size */
-  outline: none; /* Removes the default outline */
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
 }
 
 .search-input:focus {
-  border-color: #007bff; /* Changes border color on focus */
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Adds a shadow on focus */
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Style for the search submit button */
+.search-submit {
+  background-color: #007bff;
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.search-submit i {
+  margin-left: 0.5rem;
+}
+
+
+/* Style for the close button */
+.close-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #007bff;
+}
+
+
+}
+/* Style for the Edit and Delete buttons in the admin-post-controls */
+.admin-post-controls {
+  display: inline-flex; /* Les boutons sont placés côte à côte */
+  gap: 5px; /* Espacement entre les boutons */
+}
+
+.admin-post-controls a.edit, 
+.admin-post-controls input.delete {
+  background-color: black; /* Fond noir pour les deux boutons */
+  color: white; /* Texte blanc */
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 80px;
+}
+
+.admin-post-controls a.edit:hover, 
+.admin-post-controls input.delete:hover {
+  background-color: #333; /* Couleur plus claire au survol */
 }
 

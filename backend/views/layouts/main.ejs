@@ -7,13 +7,36 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <!-- Inclure le header d'abord, car le bouton de recherche est dedans -->
   <%- include('../sections/header') %>
 
+  <!-- Inclure la barre de recherche ici -->
+  <%- include('../sections/search.ejs') %>
+
+  <!-- Le contenu principal de la page -->
   <main>
     <%- body %>
   </main>
 
+  <!-- Inclure le footer -->
   <%- include('../sections/footer') %>
+
+  <!-- JavaScript pour afficher/masquer la barre de recherche -->
+  <script>
+    document.getElementById('searchBtn').addEventListener('click', function() {
+      const searchContainer = document.getElementById('searchContainer');
+      if (searchContainer.style.display === 'none' || searchContainer.style.display === '') {
+        searchContainer.style.display = 'block';
+      } else {
+        searchContainer.style.display = 'none';
+      }
+    });
+
+     document.getElementById('closeSearchBtn').addEventListener('click', function() {
+      const searchContainer = document.getElementById('searchContainer');
+      searchContainer.style.display = 'none';
+     });
+  </script>
 </body>
 </html>
 

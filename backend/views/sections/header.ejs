@@ -5,6 +5,12 @@
         <% if (user) { %>
           <li>Welcome, <%= user.email %></li>
           <li><a href="/logout">Log Out</a></li>
+          <li>
+           <!-- Search button with icon -->
+           <button id="searchBtn" class="search-button">
+             <i class="fas fa-search"></i> Search
+           </button>
+          </li>
         <% } else { %>
           <li><a href="/signup">Sign Up</a></li>
           <li><a href="/login">Log In</a></li>
