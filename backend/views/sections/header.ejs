@@ -1,9 +1,9 @@
   <header>
-    <h1><a href="/">Welcome to Our Application</a></h1>
     <nav>
       <ul>
+          <li id="nameapp"><a href="/">SimpleBlogAPI</a></li>
         <% if (user) { %>
-          <li>Welcome, <%= user.email %></li>
+          <li id="user" >Welcome, <%= user.email %></li>
           <li><a href="/logout">Log Out</a></li>
           <li>
            <!-- Search button with icon -->

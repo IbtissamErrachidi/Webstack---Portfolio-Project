@@ -127,7 +127,7 @@ app.get('/', requireAuth, async (req, res) => {
  *POET : id /
 */
 
-app.get('/post/:id', async (req, res) => {
+app.get('/post/:id',requireAuth, async (req, res) => {
   try {
     let slug = req.params.id;
 
@@ -145,7 +145,7 @@ app.get('/post/:id', async (req, res) => {
  *POET - serachTerm /
 */
 
-app.post('/search', async (req, res) => {
+app.post('/search',requireAuth, async (req, res) => {
 
 try {
   
@@ -173,7 +173,7 @@ const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, '');
  *User -Creat New post/
 */
 
-app.get('/add-post', async (req, res) => {
+app.get('/add-post',requireAuth, async (req, res) => {
   try {
     const data = await Post.find();
     res.render('pages/add-post', { title: 'Add post', data });
@@ -189,7 +189,7 @@ app.get('/add-post', async (req, res) => {
  *User -Creat New post/
 */
 
-app.post('/add-post', async (req, res) => {
+app.post('/add-post',requireAuth, async (req, res) => {
   try {
     const newPost = new Post({
       title: req.body.title,
@@ -209,7 +209,7 @@ app.post('/add-post', async (req, res) => {
  *User -Creat New post/
 */
 
-app.get('/edit-post/:id', async (req, res) => {
+app.get('/edit-post/:id',requireAuth, async (req, res) => {
   try {
     const data = await Post.findOne({_id: req.params.id })
      res.render('pages/edit-post', { title: 'Add post', data });
@@ -226,7 +226,7 @@ app.get('/edit-post/:id', async (req, res) => {
  *User -Creat New post/
 */
 
-app.put('/edit-post/:id', async (req, res) => {
+app.put('/edit-post/:id',requireAuth, async (req, res) => {
   try {
     await Post.findByIdAndUpdate(req.params.id, {
      title: req.body.title,
@@ -247,7 +247,7 @@ app.put('/edit-post/:id', async (req, res) => {
  *User -Delete post/
 */
 
-app.delete('/delete-post/:id', async (req, res) => {
+app.delete('/delete-post/:id',requireAuth, async (req, res) => {
   try {
     await Post.deleteOne({ _id: req.params.id });
     res.redirect('/');
