@@ -379,3 +379,25 @@ html {
   color: #003366; /* Couleur du texte en bleu foncé */
 }
 
+/* Style pour le conteneur de la barre de recherche */
+#searchContainer {
+  display: none;
+  position: fixed; /* Fixe la position pour qu'elle reste en place même quand on fait défiler la page */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9); /* Fond blanc avec opacité pour le conteneur de recherche */
+  backdrop-filter: blur(10px); /* Effet de flou pour l'arrière-plan */
+  z-index: 100; /* Assure que la barre de recherche est au-dessus du reste du contenu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée pour ajouter de la profondeur */
+}
+
+/* Affiche la barre de recherche lorsque la classe active est ajoutée */
+#searchContainer.active {
+  display: flex;
+}
+
+li #head {
+  margin-right: 60px;
+}

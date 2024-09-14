@@ -4,13 +4,13 @@
           <li id="nameapp"><a href="/">SimpleBlogAPI</a></li>
         <% if (user) { %>
           <li id="user" >Welcome, <%= user.email %></li>
-          <li><a href="/logout">Log Out</a></li>
-          <li>
+          <li >
            <!-- Search button with icon -->
            <button id="searchBtn" class="search-button">
              <i class="fas fa-search"></i> Search
            </button>
           </li>
+          <li id="head" ><a href="/logout">Log Out</a></li>
         <% } else { %>
           <li><a href="/signup">Sign Up</a></li>
           <li><a href="/login">Log In</a></li>
