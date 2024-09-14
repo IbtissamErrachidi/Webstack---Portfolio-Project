@@ -1,3 +1,40 @@
-<h1>Welcome to the Home Page</h1>
-<p>This is the home page content. Welcome to our website!</p>
+<div class="main-content">
+  <!-- Image -->
+  <img src="/images/Blog_image.jpg" alt="Person looking out through window" class="hero-image">
+  
+  <!-- Text container -->
+  <div class="text-container">
+    <h2>The Importance of Blogging</h2>
+    <p>Blogging is a powerful tool for sharing your thoughts, ideas, and expertise with a wider audience. It helps in building your personal brand, enhancing your online presence, and connecting with like-minded individuals. Whether you're a professional looking to establish authority in your field or simply passionate about a topic, blogging provides a platform for expression and engagement.</p>
+    <p>For more insights on the significance of blogging, check out the following sources:</p>
+    <ul>
+      <li><a href="https://www.forbes.com/sites/forbesagencycouncil/2019/04/22/the-importance-of-blogging-for-your-business/">Forbes: The Importance of Blogging for Your Business</a></li>
+      <li><a href="https://www.huffpost.com/entry/the-importance-of-blogging_b_10776820">HuffPost: The Importance of Blogging</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Latest Posts Section -->
+
+<section class="articles">
+  <h2 class="articles_heading">Latest Posts</h2>
+  <a href= "/add-post" >+ Add New</a>
+  <ul class="article-ul">
+    <% data.forEach(post => { %>
+    <li>
+      <a href="/post/<%= post._id %>">
+        <span><%= post.title %></span>
+        <span class="article-list_date"><%= post.createdAt.toDateString() %></span>
+      </a>
+    </li>
+    <% }) %>
+
+    <!-- Add more articles here -->
+  </ul>
+<% if (nextPage != null) { %>
+  <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+<% } %>
+
+
+</section>
 
