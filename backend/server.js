@@ -35,6 +35,7 @@ mongoose.connect(dbURI, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use('/images', express.static(path.join(__dirname, 'views/images')));
 app.use(express.static(path.join(__dirname, 'style')));
 // Use express-ejs-layouts
 app.use(ejsLayouts);
