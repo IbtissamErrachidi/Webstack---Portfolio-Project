@@ -1,24 +1,19 @@
 <div class="main-content">
   <!-- Image -->
-  <img src="/images/Blog_image.jpg" alt="Person looking out through window" class="hero-image">
-  
+  <img src="/images/blog_image1.jpg" alt="Blog image" class="hero-image">
+
   <!-- Text container -->
   <div class="text-container">
-    <h2>The Importance of Blogging</h2>
-    <p>Blogging is a powerful tool for sharing your thoughts, ideas, and expertise with a wider audience. It helps in building your personal brand, enhancing your online presence, and connecting with like-minded individuals. Whether you're a professional looking to establish authority in your field or simply passionate about a topic, blogging provides a platform for expression and engagement.</p>
-    <p>For more insights on the significance of blogging, check out the following sources:</p>
-    <ul>
-      <li><a href="https://www.forbes.com/sites/forbesagencycouncil/2019/04/22/the-importance-of-blogging-for-your-business/">Forbes: The Importance of Blogging for Your Business</a></li>
-      <li><a href="https://www.huffpost.com/entry/the-importance-of-blogging_b_10776820">HuffPost: The Importance of Blogging</a></li>
-    </ul>
+    <h2 class="main-title">Bring Your Ideas to Life: Effortlessly Create, Manage, and Explore Your Blog Content with Our Platform</h2>
+    <p class="cta-text">Ready to start your blogging adventure? <a href="#latest-posts" class="cta-link">Explore the latest posts</a> and take the first step towards reaching your audience with ease!</p>
   </div>
 </div>
-
 <!-- Latest Posts Section -->
-
-<section class="articles">
-  <h2 class="articles_heading">Latest Posts</h2>
-  <a href= "/add-post" >+ Add New</a>
+<section id="latest-posts"  class="articles">
+  <div class="articles-header">
+    <h2 class="articles_heading" href="#latest-posts" class="scroll-link">Recent Articles</h2>
+    <h2><a href="/add-post">+ Add New</a></h2>
+  </div>
   <ul class="article-ul">
     <% data.forEach(post => { %>
     <li>
@@ -31,10 +26,8 @@
 
     <!-- Add more articles here -->
   </ul>
-<% if (nextPage != null) { %>
-  <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
-<% } %>
-
-
+  <% if (nextPage != null) { %>
+    <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+  <% } %>
 </section>
 

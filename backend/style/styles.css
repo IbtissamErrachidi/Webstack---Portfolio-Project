@@ -15,10 +15,9 @@ body {
 
 /* Header Styles */
 header {
-  background: #333; /* Changer la couleur de fond */
+  background: #003366; /* Changer la couleur de fond */
   color: #fff; /* Changer la couleur du texte */
   padding: 1rem;
-  text-align: center;
   border-bottom: 3px solid #fff; /* Ajouter une bordure au bas de l'en-tête */
 }
 
@@ -99,7 +98,7 @@ form button:hover {
 
 /* Footer Styles */
 footer {
-  background: #333;
+  background: #003366;
   color: #fff;
   padding: 1rem;
   text-align: center;
@@ -111,15 +110,20 @@ footer p {
   margin: 0;
 }
 
+footer a {
+  color: black;
+}
+
 /* Style for the main content */
 .main-content {
   display: flex; /* Utiliser flexbox pour aligner l'image et le texte côte à côte */
   align-items: flex-start; /* Alignement des éléments au sommet */
   justify-content: space-between; /* Espacement entre l'image et le texte */
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: #f4f4f4;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
 }
 
 /* Style for the image */
@@ -129,31 +133,50 @@ footer p {
   border-radius: 8px;
 }
 
-/* Style for the text container */
+/* Text Container Styles */
 .text-container {
-  width: 45%; /* Le texte prend environ 45% de la largeur du conteneur */
-  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff; /* Couleur de fond blanche pour le texte */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 50px;
+  margin-top: 40px;
 }
 
-.text-container h2 {
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-  color: #333;
+
+
+.main-title {
+    font-size: 2.5em;
+    color: #003366; /* Bleu foncé */
+    margin-bottom: 20px;
+    position: relative;
+    font-weight: bold;
 }
 
-.text-container p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #666;
+.main-title {
+    font-size: 2.5em;
+    background: linear-gradient(90deg, #003366, #006699); /* Dégradé de bleu foncé à bleu clair */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-.text-container a {
-  color: #007bff; /* Couleur du lien */
-  text-decoration: none;
+
+.cta-text {
+  font-size: 1em;
+  color: #333333; /* Gris foncé pour le texte principal */
+  margin-bottom: 20px;
+}
+
+.cta-link {
+  color: #ff0000; /* Rouge pour le lien d'appel à l'action */
   font-weight: bold;
 }
 
-.text-container a:hover {
+.cta-link:hover {
   text-decoration: underline;
 }
 
@@ -318,5 +341,41 @@ footer p {
 .admin-post-controls a.edit:hover, 
 .admin-post-controls input.delete:hover {
   background-color: #333; /* Couleur plus claire au survol */
+}
+
+/* Style pour l'élément de liste */
+#nameapp a {
+    font-style: italic;        /* Italique */
+    font-weight: bold;         /* Gras */
+    text-decoration: none;     /* Sans décoration de texte */
+    color: #fff;              /* Couleur du texte par défaut (noir, par exemple) */
+    transition: color 0.3s;    /* Transition pour l'effet de survol */
+}
+
+/* Style pour l'effet de survol */
+#nameapp a:hover {
+    color: #87CEEB;            /* Bleu ciel (LightSkyBlue) */
+}
+#user {
+  margin-left: 300px;
+}
+
+html {
+  scroll-behavior: smooth; /* Ajoute un défilement fluide pour toute la page */
+}
+/* Style pour l'en-tête des articles */
+.articles-header {
+  display: flex;
+  justify-content: space-between; /* Espacement entre le titre et le bouton */
+  align-items: center; /* Aligner les éléments verticalement */
+  margin-bottom: 1rem; /* Marge inférieure pour espacer du contenu suivant */
+}
+
+/* Style pour le titre */
+.articles-header h2 {
+  color: #003366; /* Couleur du texte en bleu foncé */
+}
+.articles-header h2 a {
+  color: #003366; /* Couleur du texte en bleu foncé */
 }
 
