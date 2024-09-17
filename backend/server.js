@@ -231,10 +231,12 @@ app.put('/edit-post/:id',requireAuth, async (req, res) => {
     await Post.findByIdAndUpdate(req.params.id, {
      title: req.body.title,
      body: req.body.body,
-     updatedAt: Date.now()
+     updatedAt: Date.now(),
+     updated: true,
    });
 
-    res.redirect(`/edit-post/${req.params.id}`);
+   res.redirect(`/post/${req.params.id}`);
+
   } catch (error) {
     console.log(error);
     res.status(500).send('Internal Server Error');

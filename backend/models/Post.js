@@ -10,6 +10,10 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  updated: {
+   type: Boolean,
+   default: false
+  },
   createdAt: {
     type: Date,
     default: Date.now

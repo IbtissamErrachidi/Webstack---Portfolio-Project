@@ -19,7 +19,11 @@
     <li>
       <a href="/post/<%= post._id %>">
         <span><%= post.title %></span>
-        <span class="article-list_date"><%= post.createdAt.toDateString() %></span>
+        <span class="article-list_date"><% if (post.updated) { %> 
+   <%= post.updatedAt.toDateString() %> 
+<% } else { %>
+  <%= post.createdAt.toDateString() %>
+<% } %></span>
       </a>
     </li>
     <% }) %>
