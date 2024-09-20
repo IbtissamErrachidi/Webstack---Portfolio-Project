@@ -50,16 +50,19 @@ cd Webstack---Portfolio-Project/backend
 
 In the backend folder, run:
 
+```bash
 npm install
+```
 
 ### Step 3: Set up environment variables
 
 In the backend folder, create a .env file with the following variables:
 
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_jwt_secret
 
-Explanation:
+### Explanation:
 
 MONGO_URI: The connection URI for your MongoDB database. Replace your_mongodb_connection_string with your actual MongoDB URI.
 JWT_SECRET: A secret key to sign JWT tokens. Replace your_jwt_secret with a secure, random string.
@@ -76,6 +79,7 @@ http://localhost:3000
 This will load the Blog App on your local environment.
 
 ##Future Improvements
+
 Here are some features that could be added to improve the app:
 
 Comments on Posts: Allow users to comment on blog posts.
