@@ -78,12 +78,14 @@ http://localhost:3000
 
 This will load the Blog App on your local environment.
 
-##Future Improvements
+## Future Improvements
 
 Here are some features that could be added to improve the app:
 
 Comments on Posts: Allow users to comment on blog posts.
+
 Email Notifications: Send email updates to users about changes to their posts.
+
 Categories: Allow filtering posts by category to make content browsing easier.
 
 ## License
