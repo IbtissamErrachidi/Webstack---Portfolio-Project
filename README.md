@@ -1,17 +1,16 @@
-# Blog App
+# SimpleBlogAPI
 
 A simple platform for creating, searching, and managing blog posts.
 
 ## Project Overview
 
-Blog App is a web application that allows users to publish, edit, and delete blog posts. It also includes a search feature to find posts. Authentication is secured via JWT tokens, with sessions stored in cookies for a seamless user experience.
+SimpleBlogAPI is a web application that allows users to publish, edit, and delete blog posts. It also includes a search feature to find posts. Authentication is secured via JWT tokens, with sessions stored in cookies for a seamless user experience.
 
 ## Features
 
 - **User Authentication**: Sign up, log in, and log out using JWT in cookies.
 - **Blog Post CRUD**: Create, read, update, and delete blog posts.
 - **Post Search**: Search for posts by title or content.
-- **Profile Management**: Users can edit their profile information.
 
 ## Technologies Used
 
@@ -43,9 +42,9 @@ Follow these steps to set up the project on your local machine:
 ### Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/username/Blog_App.git
-cd Blog_App/backend
-
+git clone https://github.com/IbtissamErrachidi/Webstack---Portfolio-Project.git
+cd Webstack---Portfolio-Project/backend
+```
 
 ### Step 2: Install dependencies
 
@@ -88,4 +87,5 @@ This project is licensed under the ISC License. See the LICENSE file for more de
 
 
 This version includes both the titles and detailed explanations for every section. It provides a comprehensive guide to setting up, using, and contributing to the Blog App project.
+
 
