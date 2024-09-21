@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+require('dotenv').config();
 
 
 const requireAuth = (req, res, next) => {
@@ -7,7 +8,7 @@ const requireAuth = (req, res, next) => {
 
    //check json web token exists & is verified
    if (token) {
-     jwt.verify(token, 'jwt secret', (err, decodedToken) => {
+     jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
        if (err) {
          console.log(err.message);
          res.redirect('/login');

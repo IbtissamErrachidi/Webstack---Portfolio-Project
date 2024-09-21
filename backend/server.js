@@ -7,14 +7,15 @@ const { requireAuth, checkUser } = require('./middleware/middleware');
 const ejsLayouts = require('express-ejs-layouts');
 const Post = require('./models/Post');
 const methodOverride = require('method-override');
+require('dotenv').config();
 
 
 const app = express();
 
 mongoose.set('strictQuery', true);
 
-// URL de connexion MongoDB
-const dbURI = 'mongodb+srv://ibtissamerrachidi810:An1XQlEIFReUIl5E@cluster0.ses7k.mongodb.net/Mydatabase';
+// Use MONGO_URI from .env file
+const dbURI = process.env.MONGO_URI;
 
 // Connexion  MongoDB
 mongoose.connect(dbURI, {
