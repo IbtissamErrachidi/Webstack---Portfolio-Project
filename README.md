@@ -70,7 +70,10 @@ JWT_SECRET: A secret key to sign JWT tokens. Replace your_jwt_secret with a secu
 ## Usage
 
 To start the application, run the server in development mode:
+
+```bash
 npm run dev
+```
 
 After starting the server, open your browser and visit:
 
