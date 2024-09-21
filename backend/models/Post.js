@@ -10,6 +10,11 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
+    required: true
+  },
   updated: {
    type: Boolean,
    default: false

@@ -128,12 +128,25 @@ app.get('/', requireAuth, async (req, res) => {
  *POET : id /
 */
 
-app.get('/post/:id',requireAuth, async (req, res) => {
+app.get('/post/:id', requireAuth, async (req, res) => {
   try {
     let slug = req.params.id;
+    const data = await Post.findById({ _id: slug });
 
-    const data = await Post.findById({_id: slug });
-    res.render('pages/post', { title: 'Home Page', data });
+    if (!data) {
+      return res.status(404).send('Post not found');
+    }
+
+    const isAuthor = data.author.toString() === req.user._id.toString();
+
+    const error = req.query.error ? req.query.error : null;
+
+    res.render('pages/post', { 
+      title: 'Post Page', 
+      data, 
+      error, 
+      isAuthor
+    });
   } catch (error) {
     console.log(error);
     res.status(500).send('Internal Server Error');
@@ -194,7 +207,8 @@ app.post('/add-post',requireAuth, async (req, res) => {
   try {
     const newPost = new Post({
       title: req.body.title,
-      body: req.body.body
+      body: req.body.body,
+      author: req.user._id
       });
     await Post.create(newPost);
     res.redirect('/');
@@ -259,7 +273,6 @@ app.delete('/delete-post/:id',requireAuth, async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-
 app.use(authRoutes);
 
 module.exports = app;

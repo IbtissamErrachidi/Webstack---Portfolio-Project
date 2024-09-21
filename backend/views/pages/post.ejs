@@ -3,10 +3,22 @@
   <%= data.body %>
 </article>
 
-        <div class="admin-post-controls">
-          <a href="/edit-post/<%= data._id %>" class="edit">Edit</a>
-          <form action="/delete-post/<%= data._id %>?_method=DELETE" method="POST">
-            <input type="submit" value="Delete" class="delete">
-          </form>
-        </div>
+<% if (error) { %>
+  <div class="alert alert-danger">
+    <%= error %>
+  </div>
+<% } %>
+
+<div class="admin-post-controls">
+  <% if (isAuthor) { %>
+    <a href="/edit-post/<%= data._id %>" class="edit">Edit</a>
+    <form action="/delete-post/<%= data._id %>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete" class="delete">
+    </form>
+  <% } else { %>
+    <div class="alert alert-warning custom-warning">
+      You are not authorized to edit or delete this post.
+    </div>
+  <% } %>
+</div>
 

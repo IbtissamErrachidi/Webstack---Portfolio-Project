@@ -582,4 +582,13 @@ li #head {
 #test {
   min-height: calc(100vh - 80px);
 } 
+.custom-warning {
+  background-color: #fff3cd; /* Couleur de fond jaunâtre */
+  color: #856404; /* Couleur du texte */
+  border: 1px solid #ffeeba; /* Bordure de couleur */
+  padding: 15px; /* Espacement interne */
+  border-radius: 5px; /* Coins arrondis */
+  margin-top: 10px; /* Espace au-dessus */
+  font-weight: bold; /* Texte en gras */
+}
 
