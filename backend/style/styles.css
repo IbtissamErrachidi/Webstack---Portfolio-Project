@@ -363,16 +363,16 @@ footer a {
 
 /* Style pour l'élément de liste */
 #nameapp a {
-    font-style: italic;        /* Italique */
-    font-weight: bold;         /* Gras */
-    text-decoration: none;     /* Sans décoration de texte */
-    color: #fff;              /* Couleur du texte par défaut (noir, par exemple) */
-    transition: color 0.3s;    /* Transition pour l'effet de survol */
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
 }
 
 /* Style pour l'effet de survol */
 #nameapp a:hover {
-    color: #87CEEB;            /* Bleu ciel (LightSkyBlue) */
+    color: #87CEEB;
 }
 #user {
   margin-left: 300px;
@@ -583,12 +583,12 @@ li #head {
   min-height: calc(100vh - 80px);
 } 
 .custom-warning {
-  background-color: #fff3cd; /* Couleur de fond jaunâtre */
-  color: #856404; /* Couleur du texte */
-  border: 1px solid #ffeeba; /* Bordure de couleur */
-  padding: 15px; /* Espacement interne */
-  border-radius: 5px; /* Coins arrondis */
-  margin-top: 10px; /* Espace au-dessus */
-  font-weight: bold; /* Texte en gras */
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px; 
+  font-weight: bold;
 }
 
