@@ -444,10 +444,10 @@ li #head {
 
 /* Admin controls section */
 .admin-post-controls {
-  display: inline-flex; /* Met les éléments côte à côte */
-  gap: 1rem; /* Espace entre les boutons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1.5rem; /* Espace au-dessus */
-  margin-left: 600px;
 }
 
 /* Edit and delete buttons */
@@ -590,6 +590,7 @@ li #head {
   border-radius: 5px;
   margin-top: 10px; 
   font-weight: bold;
+  text-align: center;
 }
 
 
