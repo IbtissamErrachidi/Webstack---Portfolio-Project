@@ -592,3 +592,49 @@ li #head {
   font-weight: bold;
 }
 
+
+nav ul li a:hover {
+  color: #ffcc00; /* Couleur au survol */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Styles pour l'image et le texte principal */
+  .main-content {
+    flex-direction: column; /* Empiler l'image et le texte */
+    align-items: center; /* Centrer le contenu */
+  }
+
+  .hero-image {
+    width: 80%; /* L'image prend 80% de la largeur */
+    margin-bottom: 1rem; /* Espace en bas de l'image */
+  }
+
+  .text-container {
+    margin-left: 0; /* Enlever la marge à gauche */
+    text-align: center; /* Centrer le texte */
+  }
+
+  /* Ajustements pour les articles */
+  .articles {
+    width: 95%; /* Prendre presque toute la largeur */
+  }
+
+  .article-ul a span {
+    font-size: 1rem; /* Réduire la taille de la police */
+  }
+
+  .article-list_date {
+    font-size: 0.8rem; /* Réduire la taille de la date */
+  }
+
+  /* Styles pour le header */
+  header h1 {
+    font-size: 1.8rem; /* Réduire la taille du titre */
+  }
+
+  nav ul li {
+    margin: 0 0.5rem; /* Réduire l'espacement entre les éléments du menu */
+  }
+}
+
