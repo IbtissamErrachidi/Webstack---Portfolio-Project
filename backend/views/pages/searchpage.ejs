@@ -7,7 +7,15 @@
       <li>
         <a href="/post/<%= post._id %>">
           <span><%= post.title %></span>
-          <span class="article-list_date"><%= new Date(post.createdAt).toDateString() %></span>
+          
+          <!-- Afficher la date la plus récente (soit updatedAt si le post est mis à jour, sinon createdAt) -->
+          <span class="article-list_date">
+            <% if (post.updated) { %>
+              <%= new Date(post.updatedAt).toDateString() %>
+            <% } else { %>
+              <%= new Date(post.createdAt).toDateString() %>
+            <% } %>
+          </span>
         </a>
       </li>
     <% }); %>

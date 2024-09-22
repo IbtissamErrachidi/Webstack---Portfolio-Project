@@ -97,9 +97,20 @@ app.get('/', requireAuth, async (req, res) => {
   try {
     let perPage = 10;
     let page = req.query.page || 1;
-    
+
     const data = await Post.aggregate([
-      { $sort: { createdAt: -1 } }
+      {
+        $addFields: {
+          recentDate: {
+            $cond: {
+              if: { $eq: ["$updated", true] },
+              then: "$updatedAt",
+              else: "$createdAt"
+            }
+          }
+        }
+      },
+      { $sort: { recentDate: -1 } }
     ])
     .skip((page - 1) * perPage)
     .limit(perPage)
@@ -159,26 +170,40 @@ app.get('/post/:id', requireAuth, async (req, res) => {
  *POET - serachTerm /
 */
 
-app.post('/search',requireAuth, async (req, res) => {
+app.post('/search', requireAuth, async (req, res) => {
+  try {
+    let searchTerm = req.body.searchTerm;
+    const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, '');
 
-try {
-  
-let searchTerm = req.body.searchTerm;
-const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, '');
+    const data = await Post.aggregate([
+      {
+        $match: {
+          $or: [
+            { title: { $regex: new RegExp(searchNoSpecialChar, 'i') } },
+            { body: { $regex: new RegExp(searchNoSpecialChar, 'i') } }
+          ]
+        }
+      },
+      {
+        $addFields: {
+          recentDate: {
+            $cond: {
+              if: { $eq: ["$updated", true] },
+              then: "$updatedAt",
+              else: "$createdAt"
+            }
+          }
+        }
+      },
+      { $sort: { recentDate: -1 } } // Fermer cette accolade
+    ]);
 
-  const data = await Post.find({
-    $or: [
-      { title: { $regex: new RegExp(searchNoSpecialChar, 'i') } },
-      { body: { $regex: new RegExp(searchNoSpecialChar, 'i') } }
-    ]
-  });
+    res.render('pages/searchpage', { title: 'Search Page', data });
 
-   res.render('pages/searchpage', { title: 'Search Page', data });
-
-} catch (error) {
-  console.log(error);
-  res.status(500).send('Internal Server Error');
-}
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 
