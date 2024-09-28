@@ -45,8 +45,6 @@ app.use(ejsLayouts);
 
 // Définir le répertoire des vues
 app.set('views', path.join(__dirname, 'views'));
-// Définir un moteur de rendu si vous utilisez res.render
-app.use(ejsLayouts);
 app.set('view engine', 'ejs');
 // Définir le layout par défaut
 app.set('layout', 'layouts/main'); 
